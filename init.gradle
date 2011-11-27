@@ -1,2 +1,12 @@
+import static org.apache.ivy.util.url.CredentialsStore.INSTANCE as ivy
 
-println "Hello World!"
+buildscript {   
+  configurations { 
+    glasir
+  } 
+  
+  repositories {
+    ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)
+    mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
+  }
+}
